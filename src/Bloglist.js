@@ -1,7 +1,8 @@
 const Bloglist = (props) => {
-    const blogs = props.blogs;
-    console.log(props,blogs);
-    const title = props.title;
+    
+    // const blogs = props.blogs;
+    // const title = props.title;
+
     return ( 
         <div className="blod_list">
             {blogs.map((blog) => (
