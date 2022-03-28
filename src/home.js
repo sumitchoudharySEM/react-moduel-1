@@ -7,10 +7,15 @@ const Home = () => {
         { title: 'my new web33333', body: 'lorem 333333 ipsum ...', author: "mario", id: 3 }
     ]);
 
+    const HandelDelete = (id) =>{
+        const NewBlog = blogs.filter(blog => blog.id !== id);
+        setBlogs(NewBlog);
+    }
+
     return (
         <div className="home">
-            <Bloglist blogs = {blogs} title ="all bloags"/>
-            <Bloglist blogs = {blogs.filter((blog) => blog.author === "mario")} title ="marios blog"/>
+            <Bloglist blogs = {blogs} title ="all bloags" HandelDelete= {HandelDelete} />
+            
         </div>
     );
 }
