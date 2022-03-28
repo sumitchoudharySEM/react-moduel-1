@@ -9,7 +9,7 @@ const Home = () => {
 
     return (
         <div className="home">
-            <Bloglist blogs = {blogs} title ="tiles of web"/>
+            <Bloglist blogs = {blogs} title ="all bloags"/>
         </div>
     );
 }
