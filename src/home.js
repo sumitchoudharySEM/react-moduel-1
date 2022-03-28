@@ -7,20 +7,22 @@ const Home = () => {
         { title: 'my new web33333', body: 'lorem 333333 ipsum ...', author: "mario", id: 3 }
     ]);
 
+    const [name , setName] = useState("mario");
+
     const HandelDelete = (id) =>{
         const NewBlog = blogs.filter(blog => blog.id !== id);
         setBlogs(NewBlog);
     }
 
     useEffect(() => {
-        console.log("useEffect run everytime data is changed or by any mean web re-renders /re-read");
-        console.log(blogs);
-    })
+        console.log("useEffect run now onley when dipendency [] ke andar ka useState re-render hoga   in this case only when name changes and not when blogs changes   allso it allwes work when we start the web  ");
+        console.log(name);
+    } ,[name] );
 
     return (
         <div className="home">
             <Bloglist blogs = {blogs} title ="all bloags" HandelDelete= {HandelDelete} />
-            
+            <button onClick={() => setName("sumit")} >change name </button>
         </div>
     );
 }
