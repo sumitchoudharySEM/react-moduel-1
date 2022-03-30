@@ -7,6 +7,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import Create from './Create';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Navbar />
         <div className="container">
           <Switch>
-            <Route path="/" > <Home /> </Route>
+            <Route exact path="/" > <Home /> </Route>
+            <Route path="/create"> <Create/> </Route>
           </Switch>
         </div>
       </div>
