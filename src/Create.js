@@ -5,11 +5,23 @@ const Create = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('sumit');
+    const [peanding , setPeanding] = useState(false);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const blog = {title, body , author};
-
         console.log(blog);
+
+        setPeanding(true);
+
+        fetch('http://localhost:8000/blogs' ,{
+            method : 'POST',
+            headers: {"Content-Type" : "application/json"},
+            body : JSON.stringify(blog),
+        }).then(() => {
+            console.log("new blog added");
+            setPeanding(false);
+        })
     }
 
     return (
@@ -35,10 +47,8 @@ const Create = () => {
                     <option value="mario">mario</option>
                     <option value="sumit">sumit</option>
                 </select>
-                <button>add blog</button>
-                <p>{body}</p>
-                <p>{title}</p>
-                <p>{author}</p>
+                { !peanding && <button>add blog</button>}
+                { peanding && <button disabled >Adding blog...</button>}
             </form>
         </div>
     );
